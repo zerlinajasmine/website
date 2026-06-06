@@ -57,24 +57,24 @@ scrollBtn.addEventListener('click', () => {
 const darkToggle = document.getElementById('darkToggle');
 const body = document.body;
 
-function setTheme(isDark) {
-    if (isDark) {
-        body.classList.add('dark-mode');
-        darkToggle.textContent = '☀️';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        body.classList.remove('dark-mode');
+function setTheme(isLight) {
+    if (isLight) {
+        body.classList.add('light-mode');
         darkToggle.textContent = '🌙';
         localStorage.setItem('theme', 'light');
+    } else {
+        body.classList.remove('light-mode');
+        darkToggle.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
     }
 }
 
-if (localStorage.getItem('theme') === 'dark') {
+if (localStorage.getItem('theme') === 'light') {
     setTheme(true);
 } else {
     setTheme(false);
 }
 
 darkToggle.addEventListener('click', () => {
-    setTheme(!body.classList.contains('dark-mode'));
+    setTheme(!body.classList.contains('light-mode'));
 });
