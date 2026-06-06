@@ -68,16 +68,6 @@ body {
     margin-bottom: 40px;
 }
 
-#typing::after {
-    content: '|';
-    animation: blink 0.8s infinite;
-    color: #c9a96e;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
 /* SIDEBAR NAV */
 .sidebar nav {
     display: flex;
