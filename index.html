@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,57 +7,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button id="darkToggle" class="dark-btn">🌙</button>
-    </nav>
-    <header>
-        <img src="foto.jpg" alt="Zerlina Jasmine" class="profile-photo">
-        <h1>Hi, I'm Zerlina Jasmine</h1>
-        <p id="typing"></p>
-    </header>
+    <button id="darkToggle" class="dark-btn">🌙</button>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi! I'm Zerlina Jasmine, an HR professional at Burger Bangor. I have experience in recruitment, employee development, and human resource management. This website is my personal space to share my experiences and career journey.</p>
-    </section>
+    <div class="layout">
+        <aside class="sidebar">
+            <img src="foto.jpg" alt="Zerlina Jasmine" class="profile-photo">
+            <h1>Zerlina Jasmine</h1>
+            <p id="typing" class="tagline"></p>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </aside>
 
-    <section id="education">
-        <h2>Education</h2>
-        <div class="card">
-            <h3>[Universitas Terbuka]</h3>
-            <p class="subtitle">[Management] — [2025] - [now]</p>
-            <p>Deskripsi singkat tentang pendidikanmu.</p>
-        </div>
-        <div class="card">
-            <h3>[SMA Pradita Dirgantara]</h3>
-            <p class="subtitle">[Mathematics and Science] — [Tahun Masuk] - [Tahun Lulus]</p>
-            <p>Deskripsi singkat.</p>
-        </div>
-    </section>
+        <main class="content">
+            <section id="about">
+                <h2>About Me</h2>
+                <p>Hi! I'm Zerlina Jasmine, an HR professional at Burger Bangor. I have experience in recruitment, employee development, and human resource management. This website is my personal space to share my experiences and career journey.</p>
+            </section>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="card">
-            <h3>Human Resources</h3>
-            <p class="subtitle">Burger Bangor — [Tahun Mulai] - Present</p>
-            <p>Deskripsi tentang pekerjaan dan tanggung jawabmu di sini.</p>
-        </div>
-    </section>
+            <section id="education">
+                <h2>Education</h2>
+                <div class="card">
+                    <h3>[Universitas Terbuka]</h3>
+                    <p class="subtitle">[Management] — [2025] - [now]</p>
+                    <p>Deskripsi singkat tentang pendidikanmu.</p>
+                </div>
+                <div class="card">
+                    <h3>[SMA Pradita Dirgantara]</h3>
+                    <p class="subtitle">[Mathematics and Science] — [Tahun Masuk] - [Tahun Lulus]</p>
+                    <p>Deskripsi singkat.</p>
+                </div>
+            </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: email@example.com</p>
-    </section>
+            <section id="experience">
+                <h2>Experience</h2>
+                <div class="card">
+                    <h3>Human Resources</h3>
+                    <p class="subtitle">Burger Bangor — [Tahun Mulai] - Present</p>
+                    <p>Deskripsi tentang pekerjaan dan tanggung jawabmu di sini.</p>
+                </div>
+            </section>
 
-    <footer>
-        <p>&copy; 2026 Zerlina Jasmine. Made with love.</p>
-    </footer>
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>Email: email@example.com</p>
+            </section>
+
+            <footer>
+                <p>&copy; 2026 Zerlina Jasmine. Made with love.</p>
+            </footer>
+        </main>
+    </div>
 
     <button id="scrollTop" class="scroll-top">↑</button>
     <script src="script.js"></script>
