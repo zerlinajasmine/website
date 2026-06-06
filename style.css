@@ -36,7 +36,7 @@ h2 {
     display: inline-block;
 }
 
-.proyek-card {
+.project-card {
     background: white;
     padding: 20px;
     margin: 15px 0;
@@ -44,7 +44,7 @@ h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.proyek-card h3 {
+.project-card h3 {
     color: #764ba2;
     margin-bottom: 10px;
 }
