@@ -36,6 +36,25 @@ h2 {
     display: inline-block;
 }
 
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: #764ba2;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
 .project-card {
     background: white;
     padding: 20px;
