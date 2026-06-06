@@ -35,7 +35,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding: 100px 40px 60px;
-    background: linear-gradient(145deg, #0f0f1a, #1a1a30, #0f0f1a);
+    background: linear-gradient(145deg, #060612, #0a0a20, #0d0d2b, #060612);
     color: #e0e0e0;
     z-index: 1;
 }
@@ -46,7 +46,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 30px;
-    border: 3px solid #c9a96e;
+    border: 3px solid #d4af37;
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
@@ -55,7 +55,7 @@ body {
     font-size: 2.2em;
     font-weight: 700;
     margin-bottom: 8px;
-    color: #c9a96e;
+    color: #d4af37;
     text-align: center;
 }
 
@@ -87,7 +87,7 @@ body {
 }
 
 .sidebar nav a:hover {
-    color: #c9a96e;
+    color: #d4af37;
 }
 
 /* CONTENT */
@@ -116,7 +116,7 @@ h2::after {
     display: block;
     width: 50px;
     height: 2px;
-    background: #c9a96e;
+    background: #d4af37;
     margin-top: 10px;
 }
 
@@ -153,13 +153,13 @@ h2::after {
 #contact a {
     color: #2c2c2c;
     text-decoration: none;
-    border-bottom: 1px solid #c9a96e;
+    border-bottom: 1px solid #d4af37;
     padding-bottom: 2px;
     transition: color 0.3s;
 }
 
 #contact a:hover {
-    color: #c9a96e;
+    color: #d4af37;
 }
 
 /* FOOTER */
@@ -248,7 +248,7 @@ body.dark-mode .sidebar nav a {
 }
 
 body.dark-mode .sidebar h1 {
-    color: #c9a96e;
+    color: #d4af37;
 }
 
 body.dark-mode .sidebar nav a {
@@ -256,7 +256,7 @@ body.dark-mode .sidebar nav a {
 }
 
 body.dark-mode .sidebar nav a:hover {
-    color: #c9a96e;
+    color: #d4af37;
 }
 
 body.dark-mode .content {
@@ -286,7 +286,7 @@ body.dark-mode footer {
 }
 
 body.dark-mode .scroll-top {
-    background: #c9a96e;
+    background: #d4af37;
     color: #0a0a12;
 }
 
