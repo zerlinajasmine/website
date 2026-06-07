@@ -35,7 +35,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding: 100px 40px 60px;
-    background: linear-gradient(145deg, #060612, #0a0a20, #0d0d2b, #060612);
+    background: #000;
     color: #e0e0e0;
     z-index: 1;
 }
@@ -237,7 +237,7 @@ body.dark-mode .dark-btn:hover {
 }
 
 body.dark-mode .sidebar {
-    background: linear-gradient(145deg, #0f0f1a, #1a1a30, #0f0f1a);
+    background: #000;
     color: #e0e0e0;
 }
 
@@ -260,7 +260,7 @@ body.dark-mode .sidebar nav a:hover {
 }
 
 body.dark-mode .content {
-    background: #0a0a12;
+    background: #000;
     color: #d4d4d4;
 }
 
