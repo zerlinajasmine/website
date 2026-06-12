@@ -17,10 +17,40 @@ body {
     color: #2c2c2c;
 }
 
+/* TOP NAVIGATION */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 18px 20px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #b0b0b0;
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.top-nav a:hover {
+    color: #d4af37;
+}
+
 /* LAYOUT */
 .layout {
     display: flex;
     min-height: 100vh;
+    padding-top: 55px;
 }
 
 /* SIDEBAR */
@@ -65,27 +95,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* SIDEBAR NAV */
-.sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-}
-
-.sidebar nav a {
-    text-decoration: none;
-    color: #b0b0b0;
-    font-size: 0.8em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 300;
-    transition: color 0.3s;
-}
-
-.sidebar nav a:hover {
-    color: #d4af37;
-}
 
 /* CONTENT */
 .content {
@@ -233,26 +242,29 @@ body.dark-mode .dark-btn:hover {
     background: rgba(255,255,255,0.2);
 }
 
+body.dark-mode .top-nav {
+    background: rgba(0,0,0,0.95);
+}
+
+body.dark-mode .top-nav a {
+    color: #b0b0b0;
+}
+
+body.dark-mode .top-nav a:hover {
+    color: #d4af37;
+}
+
 body.dark-mode .sidebar {
     background: #000;
     color: #e0e0e0;
 }
 
 body.dark-mode .sidebar h1,
-body.dark-mode .sidebar .tagline,
-body.dark-mode .sidebar nav a {
+body.dark-mode .sidebar .tagline {
     color: inherit;
 }
 
 body.dark-mode .sidebar h1 {
-    color: #d4af37;
-}
-
-body.dark-mode .sidebar nav a {
-    color: #b0b0b0;
-}
-
-body.dark-mode .sidebar nav a:hover {
     color: #d4af37;
 }
 
@@ -289,8 +301,19 @@ body.dark-mode .scroll-top {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+    .top-nav {
+        gap: 20px;
+        padding: 14px 15px;
+    }
+
+    .top-nav a {
+        font-size: 0.75em;
+        letter-spacing: 1px;
+    }
+
     .layout {
         flex-direction: column;
+        padding-top: 50px;
     }
 
     .sidebar {
