@@ -155,10 +155,18 @@ header h1 {
     font-style: italic;
     margin-bottom: 8px;
     letter-spacing: 1px;
-    background: linear-gradient(135deg, #f0f0f0, #c0c0c0, #a8a8a8, #e8e8e8);
+    background: linear-gradient(135deg, #f8f8f8 0%, #d0d0d0 25%, #ffffff 50%, #a0a0a0 75%, #f0f0f0 100%);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .tagline {
