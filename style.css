@@ -214,14 +214,16 @@ details summary::-webkit-details-marker {
 }
 
 details summary::before {
-    content: '▶';
-    font-size: 0.7em;
+    content: '+';
+    font-size: 1em;
     color: #c0c0c0;
     transition: transform 0.2s;
+    font-weight: 300;
+    line-height: 1;
 }
 
 details[open] summary::before {
-    transform: rotate(90deg);
+    content: '−';
 }
 
 details summary h3 {
