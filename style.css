@@ -46,11 +46,32 @@ body {
     color: #d4af37;
 }
 
+/* HEADER */
+header {
+    text-align: center;
+    padding: 120px 20px 30px;
+    margin-top: 55px;
+}
+
+header h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 3em;
+    color: #d4af37;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 1em;
+    font-weight: 300;
+    color: #b0b0b0;
+}
+
 /* MAIN CONTENT */
 main {
     max-width: 700px;
     margin: 0 auto;
-    padding: 100px 20px 20px;
+    padding: 20px;
 }
 
 section {
@@ -149,7 +170,15 @@ footer {
         letter-spacing: 1px;
     }
 
+    header {
+        padding: 100px 15px 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
     main {
-        padding: 80px 15px 15px;
+        padding: 15px;
     }
 }
