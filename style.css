@@ -144,7 +144,7 @@ body::before {
 /* HEADER */
 header {
     text-align: center;
-    padding: 120px 20px 30px;
+    padding: 90px 20px 20px;
     margin-top: 55px;
 }
 
@@ -169,11 +169,7 @@ header h1 {
     100% { background-position: 0% 50%; }
 }
 
-.tagline {
-    font-size: 1em;
-    font-weight: 300;
-    color: #b0b0b0;
-}
+
 
 /* MAIN CONTENT */
 main {
