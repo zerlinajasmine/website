@@ -46,39 +46,11 @@ body {
     color: #d4af37;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 120px 20px 40px;
-    margin-top: 55px;
-}
-
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-family: 'Anton', sans-serif;
-    font-size: 3em;
-    color: #d4af37;
-    margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-
-.tagline {
-    font-size: 1em;
-    font-weight: 300;
-    color: #b0b0b0;
-}
-
 /* MAIN CONTENT */
 main {
     max-width: 700px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 100px 20px 20px;
 }
 
 section {
@@ -177,20 +149,7 @@ footer {
         letter-spacing: 1px;
     }
 
-    header {
-        padding: 100px 20px 30px;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
-
-    .profile-photo {
-        width: 120px;
-        height: 120px;
-    }
-
     main {
-        padding: 15px;
+        padding: 80px 15px 15px;
     }
 }
