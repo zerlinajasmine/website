@@ -177,6 +177,7 @@ section {
 }
 
 h2 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.6em;
     color: #e0e0e0;
     margin-bottom: 25px;
@@ -192,6 +193,13 @@ h2::after {
     margin-top: 8px;
 }
 
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15em;
+    color: #e0e0e0;
+    margin-bottom: 5px;
+}
+
 /* CARDS */
 .card {
     padding: 20px 0;
@@ -201,12 +209,6 @@ h2::after {
 
 .card:last-child {
     border-bottom: none;
-}
-
-.card h3 {
-    font-size: 1.15em;
-    color: #e0e0e0;
-    margin-bottom: 5px;
 }
 
 .subtitle {
