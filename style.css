@@ -245,6 +245,11 @@ h2::after {
     font-size: 0.7em;
 }
 
+.card ul li strong {
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
 .subtitle {
     font-size: 0.85em;
     color: #777;
