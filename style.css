@@ -215,6 +215,10 @@ h2::after {
     margin-bottom: 8px;
 }
 
+section p {
+    margin-bottom: 15px;
+}
+
 #contact a {
     color: #c084fc;
     text-decoration: none;
