@@ -134,11 +134,11 @@ body::before {
 }
 
 .top-nav a:hover {
-    color: #c084fc;
+    color: #c0c0c0;
 }
 
 .top-nav a.active {
-    color: #c084fc;
+    color: #e0e0e0;
 }
 
 /* HEADER */
@@ -153,16 +153,18 @@ header h1 {
     font-size: 2.8em;
     font-weight: 700;
     font-style: italic;
-    color: #c084fc;
     margin-bottom: 8px;
     letter-spacing: 1px;
-    text-shadow: 0 0 30px rgba(192, 132, 252, 0.3);
+    background: linear-gradient(135deg, #f0f0f0, #c0c0c0, #a8a8a8, #e8e8e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .tagline {
     font-size: 1em;
     font-weight: 300;
-    color: #a78bfa;
+    color: #b0b0b0;
 }
 
 /* MAIN CONTENT */
@@ -188,7 +190,7 @@ h2::after {
     display: block;
     width: 40px;
     height: 2px;
-    background: #c084fc;
+    background: linear-gradient(90deg, #f0f0f0, #a8a8a8);
     margin-top: 8px;
 }
 
@@ -220,9 +222,9 @@ section p {
 }
 
 #contact a {
-    color: #c084fc;
+    color: #e0e0e0;
     text-decoration: none;
-    border-bottom: 1px solid #c084fc;
+    border-bottom: 1px solid #c0c0c0;
 }
 
 /* FOOTER */
@@ -243,7 +245,7 @@ footer {
     right: 25px;
     width: 40px;
     height: 40px;
-    background: #c084fc;
+    background: linear-gradient(135deg, #f0f0f0, #a8a8a8);
     color: #000;
     border: none;
     border-radius: 50%;
