@@ -13,8 +13,8 @@ html {
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.7;
-    background-color: #f8f5f0;
-    color: #2c2c2c;
+    background: #000;
+    color: #d4d4d4;
 }
 
 /* TOP NAVIGATION */
@@ -24,7 +24,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.95);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
@@ -46,91 +46,66 @@ body {
     color: #d4af37;
 }
 
-/* LAYOUT */
-.layout {
-    display: flex;
-    min-height: 100vh;
-    padding-top: 55px;
-}
-
-/* SIDEBAR */
-.sidebar {
-    width: 420px;
-    min-height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 100px 40px 60px;
-    background: #000;
-    color: #e0e0e0;
-    z-index: 1;
+/* HEADER */
+header {
+    text-align: center;
+    padding: 120px 20px 40px;
+    margin-top: 55px;
 }
 
 .profile-photo {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-.sidebar h1 {
+header h1 {
     font-family: 'Anton', sans-serif;
     font-size: 3em;
-    font-weight: 700;
-    margin-bottom: 8px;
     color: #d4af37;
-    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
 }
 
 .tagline {
-    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1em;
     font-weight: 300;
     color: #b0b0b0;
-    text-align: center;
-    margin-bottom: 40px;
 }
 
-
-/* CONTENT */
-.content {
-    margin-left: 420px;
-    flex: 1;
-    padding: 80px 60px;
+/* MAIN CONTENT */
+main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 section {
-    max-width: 650px;
-    margin: 0 auto 70px;
+    margin-bottom: 50px;
 }
 
 h2 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.8em;
-    color: #2c2c2c;
-    margin-bottom: 30px;
+    font-size: 1.6em;
+    color: #e0e0e0;
+    margin-bottom: 25px;
     font-weight: 600;
-    position: relative;
 }
 
 h2::after {
     content: '';
     display: block;
-    width: 50px;
+    width: 40px;
     height: 2px;
     background: #d4af37;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 /* CARDS */
 .card {
-    padding: 25px 0;
+    padding: 20px 0;
     margin: 20px 0;
-    border-bottom: 1px solid #e0d8d0;
+    border-bottom: 1px solid #1a1a1a;
 }
 
 .card:last-child {
@@ -138,83 +113,50 @@ h2::after {
 }
 
 .card h3 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.2em;
-    color: #2c2c2c;
+    font-size: 1.15em;
+    color: #e0e0e0;
     margin-bottom: 5px;
 }
 
 .subtitle {
     font-size: 0.85em;
-    color: #888;
+    color: #777;
     margin-bottom: 8px;
-    letter-spacing: 0.5px;
-}
-
-/* CONTACT */
-#contact p {
-    font-size: 1em;
 }
 
 #contact a {
-    color: #2c2c2c;
+    color: #d4af37;
     text-decoration: none;
     border-bottom: 1px solid #d4af37;
-    padding-bottom: 2px;
-    transition: color 0.3s;
-}
-
-#contact a:hover {
-    color: #d4af37;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 30px 0;
-    margin-top: 30px;
+    padding: 30px 20px;
     font-size: 0.85em;
-    color: #aaa;
-    border-top: 1px solid #e0d8d0;
-}
-
-/* DARK MODE TOGGLE */
-.dark-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.1);
-    transition: background 0.3s;
-}
-
-.dark-btn:hover {
-    background: rgba(0,0,0,0.2);
+    color: #555;
+    border-top: 1px solid #1a1a1a;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* SCROLL TO TOP */
 .scroll-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 44px;
-    height: 44px;
-    background: #2c2c2c;
-    color: #f8f5f0;
+    bottom: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    background: #d4af37;
+    color: #000;
     border: none;
     border-radius: 50%;
-    font-size: 1.2em;
+    font-size: 1.1em;
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: opacity 0.3s, visibility 0.3s;
     z-index: 999;
 }
 
@@ -223,117 +165,32 @@ footer {
     visibility: visible;
 }
 
-.scroll-top:hover {
-    transform: translateY(-3px);
-}
-
-/* LIGHT MODE (DEFAULT) */
-body {
-    background-color: #f8f5f0;
-    color: #2c2c2c;
-}
-
-/* DARK MODE TOGGLE */
-body.dark-mode .dark-btn {
-    background: rgba(255,255,255,0.1);
-}
-
-body.dark-mode .dark-btn:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-body.dark-mode .top-nav {
-    background: rgba(0,0,0,0.95);
-}
-
-body.dark-mode .top-nav a {
-    color: #b0b0b0;
-}
-
-body.dark-mode .top-nav a:hover {
-    color: #d4af37;
-}
-
-body.dark-mode .sidebar {
-    background: #000;
-    color: #e0e0e0;
-}
-
-body.dark-mode .sidebar h1,
-body.dark-mode .sidebar .tagline {
-    color: inherit;
-}
-
-body.dark-mode .sidebar h1 {
-    color: #d4af37;
-}
-
-body.dark-mode .content {
-    background: #000;
-    color: #d4d4d4;
-}
-
-body.dark-mode h2 {
-    color: #e0e0e0;
-}
-
-body.dark-mode .card {
-    border-color: #1a1a2a;
-}
-
-body.dark-mode .card h3 {
-    color: #e0e0e0;
-}
-
-body.dark-mode #contact a {
-    color: #d4d4d4;
-}
-
-body.dark-mode footer {
-    color: #666;
-    border-color: #1a1a2a;
-}
-
-body.dark-mode .scroll-top {
-    background: #d4af37;
-    color: #0a0a12;
-}
-
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     .top-nav {
-        gap: 20px;
+        gap: 15px;
         padding: 14px 15px;
     }
 
     .top-nav a {
-        font-size: 0.75em;
+        font-size: 0.7em;
         letter-spacing: 1px;
     }
 
-    .layout {
-        flex-direction: column;
-        padding-top: 50px;
+    header {
+        padding: 100px 20px 30px;
     }
 
-    .sidebar {
-        width: 100%;
-        min-height: auto;
-        position: relative;
-        padding: 50px 30px;
+    header h1 {
+        font-size: 2em;
     }
 
     .profile-photo {
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
     }
 
-    .sidebar h1 {
-        font-size: 1.8em;
-    }
-
-    .content {
-        margin-left: 0;
-        padding: 50px 30px;
+    main {
+        padding: 15px;
     }
 }
