@@ -1,3 +1,13 @@
+// SUPABASE CLIENT
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Get or create user ID
+let userId = localStorage.getItem('hd_user_id');
+if (!userId) {
+    userId = crypto.randomUUID();
+    localStorage.setItem('hd_user_id', userId);
+}
+
 // SCROLL TO TOP
 const scrollBtn = document.getElementById('scrollTop');
 
@@ -63,7 +73,6 @@ function toggleMusic() {
     isPlaying = !isPlaying;
 }
 
-// Try autoplay on first user interaction
 document.addEventListener('click', function firstClick() {
     if (!autoplayAttempted) {
         autoplayAttempted = true;
@@ -75,54 +84,71 @@ document.addEventListener('click', function firstClick() {
     }
 }, { once: true });
 
-// FORM SUBMISSION + LOCALSTORAGE
+// SUPABASE: FORM SUBMISSION
 const storyForm = document.getElementById('storyForm');
 const thankYou = document.getElementById('thankyou');
-
-function loadStories() {
-    const list = document.getElementById('storiesList');
-    if (!list) return;
-    const stories = JSON.parse(localStorage.getItem('myStories') || '[]');
-    if (stories.length === 0) {
-        list.innerHTML = '<p class="empty">Belum ada cerita yang dikirim.</p>';
-        return;
-    }
-    list.innerHTML = stories.map(s => `
-        <div class="story-item">
-            <div class="story-date">${s.date}</div>
-            <div class="story-text">${s.text}</div>
-            <div class="story-meta">${s.name} · ${s.publish === 'Ya, boleh' ? 'Disetujui untuk dipublikasikan' : 'Tidak untuk dipublikasikan'}</div>
-        </div>
-    `).join('');
-}
 
 if (storyForm && thankYou) {
     storyForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const data = new FormData(storyForm);
+        const name = data.get('name') || 'Anonim';
+        const message = data.get('message');
+        const publish = data.get('publish') || 'Tidak';
+
         try {
+            // Send to Formspree (still goes to email)
             await fetch(storyForm.action, {
                 method: 'POST',
                 body: data,
                 headers: { 'Accept': 'application/json' }
-            });
-            // Save to localStorage
-            const stories = JSON.parse(localStorage.getItem('myStories') || '[]');
-            stories.unshift({
-                id: Date.now(),
-                date: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
-                text: data.get('message'),
-                name: data.get('name') || 'Anonim',
-                publish: data.get('publish') || 'Tidak'
-            });
-            localStorage.setItem('myStories', JSON.stringify(stories));
+            }).catch(() => {});
+            // Save to Supabase
+            const { error } = await supabase
+                .from('stories')
+                .insert({ user_id: userId, name, message, publish_consent: publish });
+            if (error) throw error;
             storyForm.style.display = 'none';
             thankYou.style.display = 'block';
-            loadStories();
+            loadMyStories();
         } catch {
             alert('Gagal mengirim. Coba lagi ya.');
         }
     });
 }
 
-loadStories();
+// SUPABASE: LOAD MY STORIES
+async function loadMyStories() {
+    const list = document.getElementById('storiesList');
+    if (!list) return;
+
+    const { data, error } = await supabase
+        .from('stories')
+        .select('*')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false });
+
+    if (error || !data || data.length === 0) {
+        list.innerHTML = '<p class="empty">Belum ada cerita yang dikirim.</p>';
+        return;
+    }
+
+    list.innerHTML = data.map(s => {
+        const date = new Date(s.created_at).toLocaleDateString('id-ID', {
+            year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+        const replyHtml = s.reply
+            ? `<div class="story-reply"><strong>Balasan:</strong> ${s.reply}</div>`
+            : '';
+        return `
+            <div class="story-item">
+                <div class="story-date">${date}</div>
+                <div class="story-text">${s.message}</div>
+                <div class="story-meta">${s.name} · ${s.publish_consent === 'Ya, boleh' ? 'Disetujui untuk dipublikasikan' : 'Tidak untuk dipublikasikan'}</div>
+                ${replyHtml}
+            </div>
+        `;
+    }).join('');
+}
+
+loadMyStories();

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Hidden Drafts</title>
+    <link rel="stylesheet" href="style.css?v=22">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <style>
+        body { background: #f5f2ef; color: #2a2a2a; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .admin-container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .admin-container h1 { font-size: 1.6em; margin-bottom: 8px; color: #1a1a1a; }
+        .admin-container h1 small { font-size: 0.5em; font-weight: 400; color: #999; }
+        #loginForm { max-width: 300px; margin: 60px auto; text-align: center; }
+        #loginForm input { width: 100%; padding: 12px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-size: 1em; box-sizing: border-box; margin-bottom: 12px; font-family: inherit; }
+        #loginForm button { padding: 10px 24px; background: linear-gradient(135deg,#2a2a2a,#555); color: #f5f2ef; border: none; border-radius: 6px; font-size: 0.9em; cursor: pointer; font-family: inherit; }
+        .admin-story { padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .admin-story:last-child { border-bottom: none; }
+        .admin-story .meta { font-size: 0.8em; color: #999; margin-bottom: 4px; }
+        .admin-story .name { font-size: 0.85em; color: #666; margin-bottom: 8px; }
+        .admin-story .msg { font-size: 0.95em; color: #333; line-height: 1.6; margin-bottom: 10px; white-space: pre-wrap; }
+        .admin-story .reply-form { display: flex; gap: 8px; }
+        .admin-story .reply-form textarea { flex: 1; padding: 10px; border: 1px solid rgba(0,0,0,0.1); border-radius: 6px; font-size: 0.85em; font-family: inherit; resize: vertical; min-height: 50px; }
+        .admin-story .reply-form button { padding: 8px 16px; background: linear-gradient(135deg,#2a2a2a,#555); color: #f5f2ef; border: none; border-radius: 6px; font-size: 0.85em; cursor: pointer; align-self: flex-end; }
+        .admin-story .reply-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .admin-story .existing-reply { margin-top: 8px; padding: 10px; background: rgba(0,0,0,0.04); border-radius: 6px; border-left: 2px solid #bbb; font-size: 0.9em; }
+        .admin-story .existing-reply strong { font-size: 0.8em; color: #1a1a1a; display: block; margin-bottom: 4px; }
+        .status { font-size: 0.85em; color: #888; margin: 20px 0; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #888; text-decoration: none; font-size: 0.9em; }
+        .back-link:hover { color: #444; }
+        .error { color: #c33; font-size: 0.85em; margin-top: 8px; }
+        .reply-status { font-size: 0.8em; color: #2a2a2a; margin-top: 4px; }
+        #noStories { text-align: center; padding: 40px 0; color: #999; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <a href="index.html" class="back-link">← Back to site</a>
+        <div id="loginForm">
+            <h1>Admin</h1>
+            <p style="font-size:0.85em;color:#999;margin:10px 0 20px">Masukkan password untuk mengelola cerita</p>
+            <input type="password" id="passwordInput" placeholder="Password" onkeydown="if(event.key==='Enter') checkPassword()">
+            <button onclick="checkPassword()">Masuk</button>
+            <div id="loginError" class="error"></div>
+        </div>
+        <div id="adminPanel" style="display:none">
+            <h1>The Hidden Drafts <small>Admin Panel</small></h1>
+            <p class="status" id="storyCount">Memuat...</p>
+            <div id="storiesContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        function checkPassword() {
+            const pw = document.getElementById('passwordInput').value;
+            if (pw === ADMIN_PASSWORD) {
+                localStorage.setItem('hd_admin_auth', 'true');
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                document.getElementById('loginError').textContent = '';
+                loadAllStories();
+            } else {
+                document.getElementById('loginError').textContent = 'Password salah.';
+            }
+        }
+
+        // Auto-login if already authenticated
+        if (localStorage.getItem('hd_admin_auth') === 'true') {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+            loadAllStories();
+        }
+
+        async function loadAllStories() {
+            const container = document.getElementById('storiesContainer');
+            const count = document.getElementById('storyCount');
+            container.innerHTML = '<p id="noStories">Memuat cerita...</p>';
+
+            const { data, error } = await supabase
+                .from('stories')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                container.innerHTML = '<p class="error">Gagal memuat: ' + error.message + '</p>';
+                return;
+            }
+
+            if (!data || data.length === 0) {
+                container.innerHTML = '<p id="noStories">Belum ada cerita yang dikirim.</p>';
+                count.textContent = '0 cerita';
+                return;
+            }
+
+            count.textContent = data.length + ' cerita';
+            container.innerHTML = data.map(s => {
+                const date = new Date(s.created_at).toLocaleDateString('id-ID', {
+                    year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                });
+                const publishLabel = s.publish_consent === 'Ya, boleh' ? '✅ Disetujui publikasi' : '❌ Tidak untuk publikasi';
+                const replySection = s.reply
+                    ? `<div class="existing-reply"><strong>Balasanmu:</strong> ${s.reply}</div>`
+                    : '';
+                return `
+                    <div class="admin-story" id="story-${s.id}">
+                        <div class="meta">${date} · ID: ${s.user_id.slice(0,8)}...${s.user_id.slice(-4)}</div>
+                        <div class="name">${s.name} · ${publishLabel}</div>
+                        <div class="msg">${s.message}</div>
+                        ${replySection}
+                        <div class="reply-form">
+                            <textarea id="reply-${s.id}" placeholder="Tulis balasan..." ${s.reply ? 'disabled' : ''}>${s.reply || ''}</textarea>
+                            <button onclick="sendReply(${s.id})" ${s.reply ? 'disabled' : ''}>${s.reply ? 'Terkirim' : 'Balas'}</button>
+                        </div>
+                        <div id="replyStatus-${s.id}" class="reply-status"></div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function sendReply(storyId) {
+            const textarea = document.getElementById('reply-' + storyId);
+            const btn = textarea.nextElementSibling;
+            const status = document.getElementById('replyStatus-' + storyId);
+            const reply = textarea.value.trim();
+
+            if (!reply) {
+                status.textContent = 'Tulis balasan dulu.';
+                setTimeout(() => status.textContent = '', 2000);
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Mengirim...';
+            status.textContent = '';
+
+            const { error } = await supabase
+                .from('stories')
+                .update({ reply })
+                .eq('id', storyId);
+
+            if (error) {
+                status.textContent = 'Gagal: ' + error.message;
+                btn.disabled = false;
+                btn.textContent = 'Balas';
+                return;
+            }
+
+            status.textContent = 'Balasan terkirim!';
+            textarea.disabled = true;
+            btn.textContent = 'Terkirim';
+            // Reload to show the reply in the existing-reply section
+            setTimeout(loadAllStories, 1500);
+        }
+
+        // Logout
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                localStorage.removeItem('hd_admin_auth');
+                location.reload();
+            }
+        });
+    </script>
+</body>
+</html>

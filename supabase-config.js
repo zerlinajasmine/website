@@ -1,0 +1,3 @@
+const SUPABASE_URL = 'https://kdpjvssajeubnphydqnc.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkcGp2c3NhamV1Ym5waHlkcW5jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0MTU5MzUsImV4cCI6MjA5Njk5MTkzNX0.2l2LKNCD--U7BVyx8KTllvSP5iY0Y9keC5esUUH8jNg';
+const ADMIN_PASSWORD = 'hidden2026';
