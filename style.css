@@ -506,6 +506,40 @@ footer {
     font-size: 0.85em;
 }
 
+/* HOBBY LIST */
+.hobby-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hobby-list li {
+    padding: 14px 0 14px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6;
+    position: relative;
+}
+
+.hobby-list li:last-child {
+    border-bottom: none;
+}
+
+.hobby-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #bbb;
+    font-size: 0.7em;
+    top: 18px;
+}
+
+.hobby-list li strong {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
 /* HIDDEN DRAFTS TEASER */
 .hidden-drafts-teaser {
     text-align: center;
