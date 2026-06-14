@@ -368,13 +368,18 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 600px) {
     .top-nav {
-        gap: 15px;
-        padding: 14px 15px;
+        gap: 10px;
+        padding: 14px 12px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        justify-content: flex-start;
     }
 
     .top-nav a {
-        font-size: 0.7em;
-        letter-spacing: 1px;
+        font-size: 0.65em;
+        letter-spacing: 0.5px;
+        flex-shrink: 0;
     }
 
     header {
