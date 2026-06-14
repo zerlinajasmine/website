@@ -506,6 +506,50 @@ footer {
     font-size: 0.85em;
 }
 
+/* SKILLS GRID */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 12px;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.skill-icon {
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+.skill-label {
+    font-size: 0.8em;
+    color: #444;
+    font-weight: 500;
+}
+
+@media (max-width: 500px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* HOBBY LIST */
 .hobby-list {
     list-style: none;
