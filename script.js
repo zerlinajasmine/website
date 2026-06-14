@@ -47,3 +47,25 @@ document.addEventListener('click', function firstClick() {
         }).catch(() => {});
     }
 }, { once: true });
+
+// FORM SUBMISSION
+const storyForm = document.getElementById('storyForm');
+const thankYou = document.getElementById('thankyou');
+
+if (storyForm && thankYou) {
+    storyForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(storyForm);
+        try {
+            await fetch(storyForm.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            storyForm.style.display = 'none';
+            thankYou.style.display = 'block';
+        } catch {
+            alert('Gagal mengirim. Coba lagi ya.');
+        }
+    });
+}

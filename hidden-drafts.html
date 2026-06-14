@@ -37,11 +37,20 @@ Tidak ada kewajiban untuk merangkai kata dengan sempurna.</p>
         </section>
 
         <section class="submit-section">
-            <form action="https://formspree.io/f/xrevrenk" method="POST">
+            <form id="storyForm" action="https://formspree.io/f/xrevrenk" method="POST">
                 <input type="text" name="name" placeholder="Anonim">
                 <textarea name="message" rows="6" placeholder="Tulis ceritamu di sini..." required></textarea>
+                <div class="publish-consent">
+                    <p>Apakah cerita kamu boleh dipublikasikan dengan anonim?</p>
+                    <label><input type="radio" name="publish" value="Ya, boleh" required> Ya, boleh</label>
+                    <label><input type="radio" name="publish" value="Tidak"> Tidak</label>
+                </div>
                 <button type="submit">Kirim ✦</button>
             </form>
+            <div id="thankyou" style="display:none;">
+                <p>Terima kasih sudah berbagi. 🤍</p>
+                <p>Ceritamu sudah sampai dengan aman. Isi hatimu akan aku jaga.</p>
+            </div>
         </section>
     </main>
 

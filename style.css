@@ -423,6 +423,40 @@ footer {
     transform: scale(0.97);
 }
 
+.publish-consent {
+    margin: 5px 0;
+}
+
+.publish-consent p {
+    font-size: 0.9em;
+    color: #c0c0c0;
+    margin-bottom: 10px;
+}
+
+.publish-consent label {
+    display: block;
+    font-size: 0.85em;
+    color: #b0b0b0;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.publish-consent input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #c0c0c0;
+}
+
+#thankyou {
+    text-align: center;
+    padding: 30px 0;
+}
+
+#thankyou p {
+    font-size: 1em;
+    color: #d4d4d4;
+    margin-bottom: 10px;
+}
+
 /* RESPONSIVE */
 @media (max-width: 600px) {
     .top-nav {
