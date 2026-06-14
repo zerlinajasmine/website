@@ -561,29 +561,38 @@ footer {
 .hobby-card {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     padding: 20px 16px;
     background: rgba(255,255,255,0.5);
-    border: 1px solid rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.08);
     border-radius: 10px;
     transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
 }
 
 .hobby-card:hover {
     transform: translateY(-3px);
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
 }
 
 .hobby-icon {
-    font-size: 1.4em;
+    font-size: 1.3em;
     line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.04);
+    border-radius: 8px;
+    margin-bottom: 2px;
 }
 
 .hobby-label {
-    font-size: 0.85em;
-    font-weight: 600;
+    font-size: 0.9em;
+    font-weight: 700;
     color: #1a1a1a;
+    letter-spacing: 0.3px;
 }
 
 .hobby-desc {
