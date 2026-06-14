@@ -29,10 +29,12 @@ body::before {
     height: 100%;
     z-index: -1;
     background:
-        radial-gradient(ellipse at 30% 20%, rgba(200,195,190,0.6) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 80%, rgba(215,210,205,0.5) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(230,225,220,0.4) 0%, transparent 60%),
-        linear-gradient(180deg, #f5f2ef 0%, #ece8e4 40%, #e5e0db 100%);
+        radial-gradient(ellipse at 15% 10%, rgba(220,215,210,0.7) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 15%, rgba(200,195,190,0.5) 0%, transparent 40%),
+        radial-gradient(ellipse at 25% 60%, rgba(225,220,215,0.5) 0%, transparent 45%),
+        radial-gradient(ellipse at 75% 70%, rgba(210,205,200,0.4) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 90%, rgba(195,190,185,0.3) 0%, transparent 40%),
+        linear-gradient(170deg, #faf8f6 0%, #f2efec 25%, #e8e4e0 50%, #ede9e5 70%, #f5f2ef 100%);
 }
 
 /* TOP NAVIGATION */
