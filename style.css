@@ -365,6 +365,64 @@ footer {
     50% { box-shadow: 0 0 15px rgba(200,180,255,0.6); }
 }
 
+/* FORM SUBMISSION */
+.submit-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.submit-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.submit-section input,
+.submit-section textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: #d4d4d4;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.submit-section input:focus,
+.submit-section textarea:focus {
+    border-color: #c0c0c0;
+}
+
+.submit-section input::placeholder,
+.submit-section textarea::placeholder {
+    color: #555;
+}
+
+.submit-section button {
+    background: linear-gradient(135deg, #f0f0f0, #a8a8a8);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+    align-self: flex-start;
+}
+
+.submit-section button:hover {
+    transform: scale(1.05);
+}
+
+.submit-section button:active {
+    transform: scale(0.97);
+}
+
 /* RESPONSIVE */
 @media (max-width: 600px) {
     .top-nav {
