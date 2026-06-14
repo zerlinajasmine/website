@@ -401,6 +401,47 @@ footer {
     margin-bottom: 10px;
 }
 
+/* MY STORIES */
+.my-stories {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.story-item {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.story-item:last-child {
+    border-bottom: none;
+}
+
+.story-item .story-date {
+    font-size: 0.75em;
+    color: #aaa;
+    margin-bottom: 6px;
+}
+
+.story-item .story-text {
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.story-item .story-meta {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: 6px;
+}
+
+#storiesList .empty {
+    font-size: 0.9em;
+    color: #999;
+    font-style: italic;
+}
+
 /* RESPONSIVE */
 @media (max-width: 600px) {
     .top-nav {

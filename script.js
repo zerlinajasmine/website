@@ -75,9 +75,26 @@ document.addEventListener('click', function firstClick() {
     }
 }, { once: true });
 
-// FORM SUBMISSION
+// FORM SUBMISSION + LOCALSTORAGE
 const storyForm = document.getElementById('storyForm');
 const thankYou = document.getElementById('thankyou');
+
+function loadStories() {
+    const list = document.getElementById('storiesList');
+    if (!list) return;
+    const stories = JSON.parse(localStorage.getItem('myStories') || '[]');
+    if (stories.length === 0) {
+        list.innerHTML = '<p class="empty">Belum ada cerita yang dikirim.</p>';
+        return;
+    }
+    list.innerHTML = stories.map(s => `
+        <div class="story-item">
+            <div class="story-date">${s.date}</div>
+            <div class="story-text">${s.text}</div>
+            <div class="story-meta">${s.name} · ${s.publish === 'Ya, boleh' ? 'Disetujui untuk dipublikasikan' : 'Tidak untuk dipublikasikan'}</div>
+        </div>
+    `).join('');
+}
 
 if (storyForm && thankYou) {
     storyForm.addEventListener('submit', async (e) => {
@@ -89,10 +106,23 @@ if (storyForm && thankYou) {
                 body: data,
                 headers: { 'Accept': 'application/json' }
             });
+            // Save to localStorage
+            const stories = JSON.parse(localStorage.getItem('myStories') || '[]');
+            stories.unshift({
+                id: Date.now(),
+                date: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }),
+                text: data.get('message'),
+                name: data.get('name') || 'Anonim',
+                publish: data.get('publish') || 'Tidak'
+            });
+            localStorage.setItem('myStories', JSON.stringify(stories));
             storyForm.style.display = 'none';
             thankYou.style.display = 'block';
+            loadStories();
         } catch {
             alert('Gagal mengirim. Coba lagi ya.');
         }
     });
 }
+
+loadStories();
