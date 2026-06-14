@@ -100,7 +100,7 @@
                 const date = new Date(s.created_at).toLocaleDateString('id-ID', {
                     year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
                 });
-                const publishLabel = s.publish_consent === 'Ya, boleh' ? '✅ Disetujui publikasi' : '❌ Tidak untuk publikasi';
+                const publishLabel = s.publish_consent === 'Ya, boleh' ? '✅ Boleh banget publikasi' : '❌ Jangan deh, keep di kamu aja';
                 const replySection = s.reply
                     ? `<div class="existing-reply"><strong>Balasanmu:</strong> ${s.reply}</div>`
                     : '';
