@@ -459,6 +459,39 @@ footer {
     font-size: 0.85em;
 }
 
+/* HIDDEN DRAFTS TEASER */
+.hidden-drafts-teaser {
+    text-align: center;
+    padding: 50px 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    margin-top: 50px;
+}
+
+.hidden-drafts-teaser p {
+    font-size: 1em;
+    color: #666;
+    max-width: 450px;
+    margin: 0 auto 20px;
+    font-style: italic;
+}
+
+.teaser-link {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #2a2a2a, #555);
+    color: #f5f2ef;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+.teaser-link:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
 /* RESPONSIVE */
 @media (max-width: 600px) {
     .top-nav {

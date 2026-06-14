@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zerlina Jasmine</title>
-    <link rel="stylesheet" href="style.css?v=23">
-    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
+    <link rel="stylesheet" href="style.css?v=24">
 </head>
 <body>
     <nav class="top-nav">
         <a href="#about" class="active">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
+        <a href="#hobbies">Hobbies</a>
         <a href="#contact">Contact</a>
-        <a href="#hidden-drafts">The Hidden Drafts ♡</a>
+        <a href="hidden-drafts.html">The Hidden Drafts ♡</a>
     </nav>
 
     <header>
@@ -29,6 +28,7 @@
         </section>
 
         <section id="education">
+            <h2>My Education</h2>
             <div class="card">
                 <details>
                     <summary><h3>Universitas Terbuka</h3></summary>
@@ -88,6 +88,7 @@
         </section>
 
         <section id="experience">
+            <h2>My Experience</h2>
             <div class="card">
                 <details>
                     <summary><h3>Human Resources</h3></summary>
@@ -138,46 +139,23 @@
             </div>
         </section>
 
+        <section id="hobbies">
+            <h2>My Hobbies</h2>
+            <p>I find joy in the little things that bring colour to everyday life. Whether it's getting lost in a good book, jotting down thoughts and ideas, or exploring new music to match my mood, I believe that hobbies are the threads that weave personality into our daily routines.</p>
+            <p>I have a deep appreciation for creative expression—writing, music, and photography are some of the ways I capture and make sense of the world around me. There's something special about finding beauty in ordinary moments and turning them into lasting memories.</p>
+            <p>Beyond the creative side, I enjoy meeting new people, learning about their stories, and discovering perspectives I've never considered before. Every conversation, every shared laugh, and every quiet moment of reflection adds a new layer to how I see the world—and that's something I'll never stop being curious about.</p>
+        </section>
+
         <section id="contact">
+            <h2>Contact Me</h2>
             <p>✉ <a href="mailto:zerlinajasmine@gmail.com">zerlinajasmine@gmail.com</a></p>
             <p>📷 <a href="https://instagram.com/zerlinajasmine" target="_blank">@zerlinajasmine</a></p>
             <p>🔗 <a href="https://linkedin.com/in/zerlinajasmine" target="_blank">Zerlina Jasmine</a></p>
         </section>
 
-        <section id="hidden-drafts">
-            <p>Halo, aku Jasmine. 🤍</p>
-            <p>Tidak semua hal bisa kita ceritakan dengan lantang.<br>
-            Ada yang memilih diam karena takut tidak dipahami.<br>
-            Ada yang memilih tersenyum karena tidak ingin merepotkan siapa pun.</p>
-            <p>Padahal, di balik diam itu sering kali ada cerita yang hanya ingin didengar.</p>
-            <p>The Hidden Drafts adalah ruang kecil yang kubuat dari keyakinan sederhana: bahwa setiap orang berhak memiliki tempat untuk meletakkan isi hatinya, tanpa harus menjelaskan siapa dirinya, tanpa harus takut dihakimi.</p>
-            <p>Di sini, tidak ada tuntutan untuk terlihat kuat.<br>
-            Tidak ada kewajiban untuk merangkai kata dengan sempurna.</p>
-            <p>Kalau ada sesuatu yang selama ini hanya tersimpan sebagai <i>draft</i> di dalam kepalamu, mungkin hari ini adalah waktu yang tepat untuk membiarkannya bernapas.</p>
-            <p>Semua cerita yang dititipkan di sini akan aku jaga dengan penuh rasa hormat dan kerahasiaan. Jika suatu hari aku merasa sebuah cerita dapat memberi makna atau menemani orang lain yang mengalami hal serupa, cerita tersebut hanya akan dipublikasikan dengan persetujuan dari pemiliknya. Tidak ada cerita yang akan dibagikan tanpa izin.</p>
-            <p>Terima kasih sudah mempercayai ruang kecil ini. Semoga setelah menuliskannya, hatimu terasa sedikit lebih ringan. 🤍</p>
-        </section>
-
-        <section class="submit-section">
-            <form id="storyForm" action="https://formspree.io/f/xrevrenk" method="POST">
-                <input type="text" name="name" placeholder="Anonim">
-                <textarea name="message" rows="6" placeholder="Tulis ceritamu di sini..." required></textarea>
-                <div class="publish-consent">
-                    <p>Apakah cerita kamu boleh dipublikasikan dengan anonim?</p>
-                    <label><input type="radio" name="publish" value="Ya, boleh" required> Ya, boleh</label>
-                    <label><input type="radio" name="publish" value="Tidak"> Tidak</label>
-                </div>
-                <button type="submit">Kirim ✦</button>
-            </form>
-            <div id="thankyou" style="display:none;">
-                <p>Terima kasih sudah berbagi. 🤍</p>
-                <p>Ceritamu sudah sampai dengan aman. Isi hatimu akan aku jaga.</p>
-            </div>
-        </section>
-
-        <section id="mystories" class="my-stories">
-            <h2>Draft Aku</h2>
-            <div id="storiesList"></div>
+        <section class="hidden-drafts-teaser">
+            <p>There's a quiet corner of this site reserved for words that were never meant to be spoken out loud.</p>
+            <a href="hidden-drafts.html" class="teaser-link">Enter The Hidden Drafts →</a>
         </section>
     </main>
 
